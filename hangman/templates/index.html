@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Hangman</title>
+
+<link rel="stylesheet"
+
+href="{{url_for('static',
+
+filename='style.css')}}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎮 HANGMAN GAME</h1>
+
+<div class="timer">
+
+⏱️ <span id="time">60</span>
+
+</div>
+
+<h2>{{display}}</h2>
+
+<div class="progress">
+
+<div id="bar"
+
+style="width:{{progress}}%">
+
+</div>
+
+</div>
+
+<h3>❤️ Lives : {{lives}}</h3>
+
+<h3>🏆 Score : {{score}}</h3>
+
+<h3>
+
+❌ Wrong :
+
+{{wrong}}
+
+</h3>
+
+<form method="POST">
+
+<input
+
+type="text"
+
+name="guess"
+
+maxlength="1"
+
+required>
+
+<button>
+
+🎯 Guess
+
+</button>
+
+</form>
+
+<br>
+
+<form method="POST">
+
+<select name="difficulty">
+
+<option>
+
+Easy
+
+</option>
+
+<option>
+
+Medium
+
+</option>
+
+<option>
+
+Hard
+
+</option>
+
+</select>
+
+<button
+
+name="action"
+
+value="difficulty">
+
+🎨 Change Level
+
+</button>
+
+</form>
+
+<br>
+
+<button onclick="hint()">
+
+💡 Hint
+
+</button>
+
+<form method="POST">
+
+<button
+
+name="action"
+
+value="restart">
+
+🔄 Play Again
+
+</button>
+
+</form>
+
+<h2>{{message}}</h2>
+
+</div>
+
+<script>
+
+var timer=60;
+
+var x=setInterval(function(){
+
+timer--;
+
+document.getElementById(
+
+"time"
+
+).innerHTML=timer;
+
+if(timer==0){
+
+clearInterval(x);
+
+alert("⏰ Time Up");
+
+}
+
+},1000);
+
+function hint(){
+
+alert(
+
+"Hint: Think about animals, technology or objects."
+
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
